@@ -20,16 +20,16 @@ steps:
     commands:
       - go test -timeout 30s ./...
 
-
-  - name: docker-ci
-    image: plugins/docker
-    repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
-    registry: misaki.packetlostandfound.us:5005
-    # username: ${docker_username}
-    # password: ${docker_password}
-    when:
-      event: [deployment, push]
-      branches: [master, develop]
+# This is broken right now
+  # - name: docker-ci
+  #   image: plugins/docker
+  #   repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
+  #   registry: misaki.packetlostandfound.us:5005
+  #   # username: ${docker_username}
+  #   # password: ${docker_password}
+  #   when:
+  #     event: [deployment, push]
+  #     branches: [master, develop]
 
 services:
   - name: database
