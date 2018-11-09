@@ -29,8 +29,6 @@ steps:
     # username: ${docker_username}
     # password: ${docker_password}
     auto_tag: true
-    tags: 
-      - latest
     when:
       event: [deployment, push]
       branches: [master, develop]
