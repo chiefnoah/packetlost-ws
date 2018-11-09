@@ -4,7 +4,7 @@ name: default
   - name: dependencies
     image: golang:1.11
     environment:
-      - GO111MODULES=on
+      GO111MODULES: on
     commands:
       - go get -u 
   - name: test
