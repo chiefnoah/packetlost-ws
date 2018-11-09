@@ -2,12 +2,6 @@ kind: pipeline
 name: default
 
  steps:
-  - name: dependencies
-    image: golang:1.11
-    environment:
-      GO111MODULES: on
-    commands:
-      - go get -u 
   - name: test
     image: golang:1.11
     environment:
@@ -42,4 +36,4 @@ name: default
 services:
   - name: database
     image: cockroachdb/cockroach:v2.1.0
-    commands: [ "start",  "--insecure" ]
+    command: [ "start --insecure" ]
