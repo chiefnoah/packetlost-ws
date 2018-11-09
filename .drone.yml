@@ -9,15 +9,15 @@ name: default
     commands:
       - go build ./cmd/main.go
 
-  - name: test
-    image: golang:1.11
-    environment:
-      GO111MODULES: on
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: ""
-      POSTGRES_ADDR: "database:26257"
-    commands:
-      - go test -timeout 30s ./...
+  # - name: test
+  #   image: golang:1.11
+  #   environment:
+  #     GO111MODULES: on
+  #     POSTGRES_USER: root
+  #     POSTGRES_PASSWORD: ""
+  #     POSTGRES_ADDR: "database:26257"
+  #   commands:
+  #     - go test -timeout 30s ./...
 
 
   # - name: docker-ci
@@ -37,4 +37,4 @@ name: default
 services:
   - name: database
     image: cockroachdb/cockroach:v2.1.0
-    command: [ "start --insecure" ]
+    # command: [ "start --insecure" ]
