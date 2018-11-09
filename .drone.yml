@@ -1,5 +1,6 @@
 kind: pipeline
 name: default
+
  steps:
   - name: dependencies
     image: golang:1.11
@@ -22,8 +23,7 @@ name: default
       GO111MODULES: on
     commands:
       - go build ./cmd/main.go
-    when:
-      event: [ push, tag ]
+
 
   # - name: docker-ci
   #   image: plugins/docker
