@@ -42,4 +42,4 @@ name: default
 services:
   - name: database
     image: cockroachdb/cockroach:v2.1.0
-    command: [ "start",  "--insecure" ]
+    commands: [ "start",  "--insecure" ]
