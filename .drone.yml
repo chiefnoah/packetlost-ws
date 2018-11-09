@@ -37,4 +37,4 @@ steps:
 services:
   - name: database
     image: cockroachdb/cockroach:v2.1.0
-    command: [ "start --insecure" ]
+    command: [ "start", "--insecure" ]
