@@ -2,21 +2,22 @@ kind: pipeline
 name: default
 
  steps:
-  - name: test
-    image: golang:1.11
-    environment:
-      GO111MODULES: on
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: 
-      POSTGRES_ADDR: database:26257
-    commands:
-      - go test -timeout 30s ./...
   - name: build
     image: golang:1.11
     environment:
       GO111MODULES: on
     commands:
       - go build ./cmd/main.go
+
+  - name: test
+    image: golang:1.11
+    environment:
+      GO111MODULES: on
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: ""
+      POSTGRES_ADDR: "database:26257"
+    commands:
+      - go test -timeout 30s ./...
 
 
   # - name: docker-ci
