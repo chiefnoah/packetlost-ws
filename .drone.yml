@@ -1,0 +1,45 @@
+kind: pipeline
+name: default
+ steps:
+  - name: dependencies
+    image: golang:1.11
+    environment:
+      - GO111MODULES=on
+    commands:
+      - go get -u 
+  - name: test
+    image: golang:1.11
+    environment:
+      - GO111MODULES=on
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=
+      - POSTGRES_ADDR=database:26257
+    commands:
+      - go test -timeout 30s ./...
+  - name: build
+    image: golang:1.11
+    environment:
+      - GO111MODULES=on
+    commands:
+      - go build ./cmd/main.go
+    when:
+      event: [ push, tag ]
+
+  - name: docker-ci
+    image: plugins/docker
+    repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
+    pull: true
+    registry: misaki.packetlostandfound.us:5005
+    # username: ${docker_username}
+    # password: ${docker_password}
+    dockerfile: ./cmd/Dockerfile
+    tags: 
+      - latest
+    when:
+      event: [deployment, push]
+      branches: [master, develop]
+
+services:
+  - name: database
+    image: cockroachdb/cockroach:v2.1.0
+    command: [ "start",  "--insecure" ]

@@ -25,7 +25,7 @@ func main() {
 	}
 	defer db.Close()
 
-	contactService := contact.ContactService{DB: db}
+	contactService := contact.Service{DB: db}
 	contactService.Init()
 	r := chi.NewRouter()
 	contact.BindEndpoints(r, contactService)
