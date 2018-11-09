@@ -24,11 +24,9 @@ steps:
   - name: docker-ci
     image: plugins/docker
     repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
-    pull: true
     registry: misaki.packetlostandfound.us:5005
     # username: ${docker_username}
     # password: ${docker_password}
-    auto_tag: true
     when:
       event: [deployment, push]
       branches: [master, develop]
