@@ -25,19 +25,19 @@ name: default
     when:
       event: [ push, tag ]
 
-  - name: docker-ci
-    image: plugins/docker
-    repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
-    pull: true
-    registry: misaki.packetlostandfound.us:5005
-    # username: ${docker_username}
-    # password: ${docker_password}
-    dockerfile: ./cmd/Dockerfile
-    tags: 
-      - latest
-    when:
-      event: [deployment, push]
-      branches: [master, develop]
+  # - name: docker-ci
+  #   image: plugins/docker
+  #   repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
+  #   pull: true
+  #   registry: misaki.packetlostandfound.us:5005
+  #   # username: ${docker_username}
+  #   # password: ${docker_password}
+  #   dockerfile: ./cmd/Dockerfile
+  #   tags: 
+  #     - latest
+  #   when:
+  #     event: [deployment, push]
+  #     branches: [master, develop]
 
 services:
   - name: database
