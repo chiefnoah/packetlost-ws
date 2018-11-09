@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -14,12 +13,14 @@ import (
 
 func main() {
 
-	POSTGRES_USER := os.Getenv("POSTGRES_USER")
-	POSTGRES_PASSWORD := os.Getenv("POSTGRES_PASSWORD")
-	POSTGRES_ADDR := os.Getenv("POSTGRES_ADDR")
+	// POSTGRES_USER := os.Getenv("POSTGRES_USER")
+	// POSTGRES_PASSWORD := os.Getenv("POSTGRES_PASSWORD")
+	// POSTGRES_ADDR := os.Getenv("POSTGRES_ADDR")
 
-	connStr := fmt.Sprintf("host=%s user=%s password='%s' dbname=packetlostandfound sslmode=disable", POSTGRES_ADDR, POSTGRES_USER, POSTGRES_PASSWORD)
-	db, err := sql.Open("postgres", connStr)
+	POSTGRES_URI := os.Getenv("POSTGRES_URI")
+
+	// connStr := fmt.Sprintf("host=%s user=%s password='%s' dbname=packetlostandfound sslmode=disable", POSTGRES_ADDR, POSTGRES_USER, POSTGRES_PASSWORD)
+	db, err := sql.Open("postgres", POSTGRES_URI)
 	if err != nil {
 		panic(err)
 	}
