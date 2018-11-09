@@ -28,6 +28,7 @@ steps:
     registry: misaki.packetlostandfound.us:5005
     # username: ${docker_username}
     # password: ${docker_password}
+    auto_tag: true
     tags: 
       - latest
     when:
