@@ -22,7 +22,7 @@ steps:
 
   # This is broken right now
   - name: docker-ci
-    image: plugins/docker:17.12
+    image: plugins/docker:17.10
     tags:
      - 1.0
     repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
