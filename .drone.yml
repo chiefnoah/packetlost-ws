@@ -22,7 +22,7 @@ steps:
 
   # This is broken right now
   - name: docker-ci
-    image: plugins/docker
+    image: plugins/docker:17.12
     repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
     registry: misaki.packetlostandfound.us:5005
     # username: ${docker_username}
