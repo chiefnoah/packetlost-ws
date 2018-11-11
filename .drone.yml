@@ -27,7 +27,7 @@ steps:
       tags:
       - 1.0
       repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
-      registry: registry.packetlostandfound.us
+      registry: http://registry.packetlostandfound.us
       # username: ${docker_username}
       # password: ${docker_password}
     when:
