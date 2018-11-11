@@ -25,8 +25,8 @@ steps:
     image: plugins/docker:17.10
     tags:
      - 1.0
-    repo: misaki.packetlostandfound.us:5005/chiefnoah/packetlostandfoundws
-    registry: misaki.packetlostandfound.us:5005
+    repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
+    registry: registry.packetlostandfound.us
     # username: ${docker_username}
     # password: ${docker_password}
     when:
