@@ -29,7 +29,10 @@ func main() {
 	contactService := contact.Service{DB: db}
 	contactService.Init()
 	r := chi.NewRouter()
-	contact.BindEndpoints(r, contactService)
+
+	r.Route("/api", func(r chi.Router) {
+		contact.BindEndpoints(r, contactService)
+	})
 
 	//Finally bind everything to the root endpoint
 	http.Handle("/", r)
