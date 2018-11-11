@@ -23,12 +23,13 @@ steps:
   # This is broken right now
   - name: docker-ci
     image: plugins/docker:17.10
-    tags:
-     - 1.0
-    repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
-    registry: registry.packetlostandfound.us
-    # username: ${docker_username}
-    # password: ${docker_password}
+    settings:
+      tags:
+      - 1.0
+      repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
+      registry: registry.packetlostandfound.us
+      # username: ${docker_username}
+      # password: ${docker_password}
     when:
       event: [deployment, push]
       branches: [master, develop]
