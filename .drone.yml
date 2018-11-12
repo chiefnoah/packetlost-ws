@@ -27,9 +27,8 @@ steps:
       tags:
       - 1.0
       repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
-      registry: http://registry.packetlostandfound.us
-      # username: ${docker_username}
-      # password: ${docker_password}
+      registry: registry.packetlostandfound.us
+      secrets: [ docker_username, docker_password ]
     when:
       event: [deployment, push]
       branches: [master, develop]
