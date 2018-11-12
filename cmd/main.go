@@ -13,13 +13,8 @@ import (
 
 func main() {
 
-	// POSTGRES_USER := os.Getenv("POSTGRES_USER")
-	// POSTGRES_PASSWORD := os.Getenv("POSTGRES_PASSWORD")
-	// POSTGRES_ADDR := os.Getenv("POSTGRES_ADDR")
-
 	POSTGRES_URI := os.Getenv("POSTGRES_URI")
 
-	// connStr := fmt.Sprintf("host=%s user=%s password='%s' dbname=packetlostandfound sslmode=disable", POSTGRES_ADDR, POSTGRES_USER, POSTGRES_PASSWORD)
 	db, err := sql.Open("postgres", POSTGRES_URI)
 	if err != nil {
 		panic(err)
@@ -33,6 +28,8 @@ func main() {
 	r.Route("/api", func(r chi.Router) {
 		contact.BindEndpoints(r, contactService)
 	})
+
+	r.Handle("/*", http.FileServer(http.Dir("./static/")))
 
 	//Finally bind everything to the root endpoint
 	http.Handle("/", r)

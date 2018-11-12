@@ -1,7 +1,10 @@
-FROM scratch
+FROM ubuntu
 
 EXPOSE 8000
 
-COPY plafws /
+RUN mkdir /app
 
-CMD [ "/plafws"]
+COPY plafws /app/plafws
+
+
+CMD [ "/app/plafws"]
