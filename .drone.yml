@@ -28,7 +28,7 @@ steps:
       - 1.0
       repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
       registry: registry.packetlostandfound.us
-      secrets: [ docker_username, docker_password ]
+    secrets: [ docker_username, docker_password ]
     when:
       event: [deployment, push]
       branches: [master, develop]
