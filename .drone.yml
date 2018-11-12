@@ -22,10 +22,11 @@ steps:
 
   # This is broken right now
   - name: docker-ci
-    image: plugins/docker:17.10
+    image: plugins/docker:17.12
     settings:
       tags:
-      - 1.0
+      - latest
+      auto_tag: true
       repo: registry.packetlostandfound.us/chiefnoah/packetlostandfoundws
       registry: registry.packetlostandfound.us
       username:
