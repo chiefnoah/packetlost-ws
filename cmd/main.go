@@ -29,7 +29,8 @@ func main() {
 		contact.BindEndpoints(r, contactService)
 	})
 
-	r.Handle("/*", http.FileServer(http.Dir("./static/")))
+	//Uncomment this to enable static file serving
+	// r.Handle("/*", http.FileServer(http.Dir("./static/")))
 
 	//Finally bind everything to the root endpoint
 	http.Handle("/", r)
